@@ -6,8 +6,9 @@ require_relative 'show_dog'
 args = {type: "by_state", vars: ['AK']}
 
 university = CollegeAnalysis.new(args)
-puts university.by_state('AK')
-# puts university.database
+# puts university.by_state('AK')
+# puts university.by_high_fac_salary(10)
+puts university.by_median_debt(1500..2300)
 
 
 
