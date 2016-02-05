@@ -2,13 +2,17 @@ require_relative 'college_analysis'
 require_relative 'flag_parser'
 require_relative 'show_dog'
 
+include FlagParser
 
-args = {type: "by_state", vars: ['AK']}
+university = CollegeAnalysis.new
 
-university = CollegeAnalysis.new(args)
+puts FlagParser.parse_flag(university)
+
+
+
 # puts university.by_state('AK')
 # puts university.by_high_fac_salary(10)
-puts university.by_median_debt(1500..2300)
+
 
 
 

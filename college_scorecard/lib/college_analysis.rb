@@ -2,11 +2,9 @@ require 'csv'
 $LOAD_PATH.unshift("..", __dir__)
 
 class CollegeAnalysis
-  attr_reader :analysis_type, :analysis_vars, :database
+  attr_reader :database
 
-  def initialize(args)
-    @analysis_type = args['type']
-    @analysis_vars = args['vars']
+  def initialize
     @database = []
     load_data("2013_college_scorecards.csv")
     #
