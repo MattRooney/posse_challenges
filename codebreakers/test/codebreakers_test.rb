@@ -1,13 +1,13 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'codebreakers'
+require_relative '../lib/codebreakers'
 
 class CodeBreakersTest < Minitest::Test
   attr_reader :cipher
 
   def setup
-    @cipher = CodeBreaker.new
+    @cipher = CodeBreakers.new
   end
 
   def test_if_codebreakers_exists
@@ -24,7 +24,7 @@ class CodeBreakersTest < Minitest::Test
   end
 
   def test_the_worst_works_with_upper_and_lower_case_letters
-    assert_equal "Faip DYI gppok tgytb.", ciper.the_worst("taylor", "Make PHP great again.")
+    assert_equal "Faip DYI gppok tgytb.", cipher.the_worst("taylor", "Make PHP great again.")
   end
 
 end
