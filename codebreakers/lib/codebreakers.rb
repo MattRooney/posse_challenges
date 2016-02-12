@@ -25,7 +25,7 @@ class CodeBreakers
     ((char.ord + shift) - range.first) % range.count + range.first
   end
 
-  
+
 
 
 
