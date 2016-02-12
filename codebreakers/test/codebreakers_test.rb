@@ -36,13 +36,11 @@ class CodeBreakersTest < Minitest::Test
   end
 
   def test_ceasar_cipher_works_with_upper_and_lower_case_letters
-    skip
     assert_equal "Or fher gb qevax lbhe Binygvar!", cipher.caeser_cipher(13, "Be sure to drink your Ovaltine!")
   end
 
   def test_the_worst_works_with_upper_and_lower_case_letters
-    skip
-    assert_equal "Faip DYI gppok tgytb.", cipher.the_worst("taylor", "Make PHP great again.")
+    assert_equal "Gbjq EZJ hqqpl uhzuc.", cipher.the_worst("taylor", "Make PHP great again.")
   end
 
 end
