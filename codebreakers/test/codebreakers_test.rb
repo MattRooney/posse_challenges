@@ -16,28 +16,27 @@ class CodeBreakersTest < Minitest::Test
 
   def test_initials_for_given_name
     # cover edge cases
-    assert_equal "TS", cipher.initials("Taylor Swift")
+    assert_equal "TS", cipher.initials(["Taylor", "Swift"])
   end
 
   def test_ceasar_cipher_works_with_one_char
-    assert_equal "b", cipher.caeser_cipher(1, "a")
+    assert_equal "b", cipher.caeser_cipher([1, "a"])
   end
 
   def test_ceasar_cipher_works_with_char_and_space
-    assert_equal "b b", cipher.caeser_cipher(1, "a a")
+    assert_equal "b b", cipher.caeser_cipher([1, "a", " ", "a"])
   end
 
   def test_ceasar_cipher_works_with_char_greater_than_z
-    assert_equal "b", cipher.caeser_cipher(2, "z")
+    assert_equal "b", cipher.caeser_cipher([2, "z"])
   end
 
   def test_ceasar_cipher_works_with_char_greater_than_capital_Z
-    assert_equal "B", cipher.caeser_cipher(2, "Z")
+    assert_equal "B", cipher.caeser_cipher([2, "Z"])
   end
 
   def test_ceasar_cipher_works_with_upper_and_lower_case_letters
-    skip
-    assert_equal "Or fher gb qevax lbhe Binygvar!", cipher.caeser_cipher(13, "Be sure to drink your Ovaltine!")
+    assert_equal "Or fher gb qevax lbhe Binygvar!", cipher.caeser_cipher([13, "Be sure to drink your Ovaltine!".split("")].flatten)
   end
 
   def test_the_worst_works_with_upper_and_lower_case_letters
