@@ -1,13 +1,16 @@
 class CodeBreakers
 
-  def initials(name)
-    name_array = name.split
-    initials = name_array.map { |name| name[0]  }
+  def initials(names)
+    initials = names.map { |name| name[0]  }
     initials.join
   end
 
-  def caeser_cipher(key, message)
-    characters = message.split("")
+  def caeser_cipher(message)
+    key = message.shift.to_i
+    words = message
+    characters = words.flat_map do |word|
+      word.split("")
+    end
     shifted_chars = characters.map do |char|
       if char[/[a-z]/]
         modulo(char, key, 97..122).chr
@@ -25,15 +28,16 @@ class CodeBreakers
     ((char.ord + shift) - range.first) % range.count + range.first
   end
 
+end
 
+if __FILE__ == $PROGRAM_NAME
+  pizza = CodeBreakers.new
+  flag = ARGV[0]
+  variables = ARGV[1..-1]
 
-
-
-
-
-
-
-
-
-
+  if flag == "initials"
+    puts pizza.initials(variables)
+  elsif flag == "caeser_cipher"
+    puts pizza.caeser_cipher(variables)
+  end
 end
